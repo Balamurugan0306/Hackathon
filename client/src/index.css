@@ -1,0 +1,121 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  --neon-blue: #00f2fe;
+  --neon-purple: #7b2ff7;
+  --neon-pink: #ff007f;
+  --neon-cyan: #4facfe;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+}
+
+body {
+  @apply bg-[#0a0a0c] text-white font-space overflow-x-hidden antialiased;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+button,
+a,
+select,
+input,
+label,
+[role="button"] {
+  cursor: pointer !important;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply bg-white/10 border-white/20 -translate-y-1;
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+  }
+
+  .neon-border {
+    @apply border border-transparent bg-clip-padding relative;
+  }
+
+  .neon-border::before {
+    content: "";
+    @apply absolute -inset-px -z-10 rounded-[inherit] opacity-70;
+    background: linear-gradient(
+      45deg,
+      var(--neon-blue),
+      var(--neon-purple),
+      var(--neon-pink)
+    );
+  }
+
+  .neon-text-blue {
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 10px rgba(123, 47, 247, 0.5);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#0a0a0c];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+}
+
+.glow-blob {
+  @apply absolute rounded-full blur-[120px] opacity-30 animate-pulse-slow;
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(2%, 4%);
+  }
+  66% {
+    transform: translate(-2%, 2%);
+  }
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 15s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s ease-in-out infinite;
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
