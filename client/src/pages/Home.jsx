@@ -354,20 +354,6 @@ const Home = () => {
             <div className="font-space text-[11px] text-gray-500 tracking-widest uppercase">
               © 2026 CHAKRAVYUHA 1.0
             </div>
-            <div className="flex gap-8 font-orbitron font-black text-[10px] tracking-widest text-white/20">
-              <span className="hover:text-white transition-all cursor-pointer">
-                FACEBOOK
-              </span>
-              <span className="hover:text-white transition-all cursor-pointer">
-                TWITTER
-              </span>
-              <span className="hover:text-white transition-all cursor-pointer">
-                INSTAGRAM
-              </span>
-              <span className="hover:text-white transition-all cursor-pointer">
-                LINKEDIN
-              </span>
-            </div>
           </div>
         </motion.div>
       </footer>
