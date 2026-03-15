@@ -7,7 +7,7 @@
     "dev": "npm run start",
     "server": "cd server && npm run dev",
     "client": "cd client && npm run dev",
-    "build": "cd client && npm install && npm run build"
+    "build": "npm install --prefix client && npm run build --prefix client",
     "install-all": "npm install && cd server && npm install && cd ../client && npm install"
   },
   "devDependencies": {
